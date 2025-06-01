@@ -11,15 +11,15 @@
                     {% trans 'Hello, ' %}
                     <span class="text-info">{{ user }}</span>
                 </p>
-                <p class="lead mb-0">{% trans "It's been a long time." %}</p>
-                <p class="mb-0">{% trans "How you doin'?" %}</p>
+                <p class="lead mb-0">{% trans "Nice to see you here again." %}</p>
+                <p class="mb-0">{% trans "Where will we check the weather today?" %}</p>
             {% else %}
                 <p class="display-4 mt-5 mb-4">{% trans 'Hello there' %}</p>
                 <p class="mx-auto w-50">
-                <p class="lead">{% trans 'This is the My Application,' %}</p>
+                <p class="lead">{% trans 'This is the Weather Application,' %}</p>
                 <p class="text-center mx-auto w-75">
-                    {% trans 'Here will be a brief description of the functionality of my application.' %}
-                    <br>
+                    {% trans 'Here you can find out the weather forecast for the specified city' %}
+                    <br><br>
                     {% trans 'Registration and authentication are required to work with my system.' %}
                 </p>
             {% endif %}

@@ -24,3 +24,9 @@ lint:
 test-coverage:
 	poetry run coverage run manage.py test
 	poetry run coverage xml --include=app/* --omit=app/settings.py
+
+create-locale-ru-ru:
+    poetry run manage.py makemessages -l ru_RU
+
+compile-locale:
+    poetry run manage.py compilemessages

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 18:40+0500\n"
+"POT-Creation-Date: 2025-06-01 19:00+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,9 @@ msgid "Go to main page"
 msgstr "Вернуться на главную страницу"
 
 #: .\app\templates\base.html:11
-msgid "My Application"
+#, fuzzy
+#| msgid "My Application"
+msgid "Weather Application"
 msgstr "Мое приложение"
 
 #: .\app\templates\delete.html:16
@@ -42,33 +44,34 @@ msgid "Hello, "
 msgstr "Привет, "
 
 #: .\app\templates\index.html:14
-msgid "It's been a long time."
-msgstr "Давненько ты сюда не заглядывал"
+msgid "Nice to see you here again."
+msgstr "Очень рад тебя снова здесь видеть."
 
 #: .\app\templates\index.html:15
-msgid "How you doin'?"
-msgstr "Как дела?"
+msgid "Where will we check the weather today?"
+msgstr "Где будем узнавать погоду сегодня?"
 
 #: .\app\templates\index.html:17
 msgid "Hello there"
 msgstr "Приветствую!"
 
 #: .\app\templates\index.html:19
-msgid "This is the My Application,"
+#, fuzzy
+#| msgid "This is the My Application,"
+msgid "This is the Weather Application,"
 msgstr "Это мое приложение"
 
 #: .\app\templates\index.html:21
-msgid ""
-"Here will be a brief description of the functionality of my application."
-msgstr "Здесь будет краткое описание фукционала моего приложения."
+msgid "Here you can find out the weather forecast for the specified city"
+msgstr "Здесь ты сможешь узнать прогноз погоды для указанного города."
 
 #: .\app\templates\index.html:23
 msgid "Registration and authentication are required to work with my system."
 msgstr "Для работы необходимо зарегистрироваться и авторизоваться."
 
 #: .\app\templates\navbar.html:5
-msgid "Application Name"
-msgstr "Название приложения"
+msgid "WeatherApp"
+msgstr "WeatherApp"
 
 #: .\app\templates\navbar.html:12 .\app\templates\users\users.html:9
 msgid "Users"
@@ -165,3 +168,16 @@ msgstr "Вы не авторизованы! Пожалуйста, выполни
 #: .\app\utils.py:43
 msgid "You have no rights to change another user."
 msgstr "У вас нет прав для изменения другого пользователя."
+
+#~ msgid "It's been a long time."
+#~ msgstr "Давненько ты сюда не заглядывал"
+
+#~ msgid "How you doin'?"
+#~ msgstr "Как дела?"
+
+#~ msgid ""
+#~ "Here will be a brief description of the functionality of my application."
+#~ msgstr "Здесь будет краткое описание фукционала моего приложения."
+
+#~ msgid "Application Name"
+#~ msgstr "Название приложения"
