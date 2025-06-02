@@ -56,3 +56,9 @@ poetry run python manage.py runserver
 ```bash
 make start
 ```
+
+### ScreenShots
+![WeatherApp_ss_1](https://storage.yandexcloud.net/spike2250-docs/screenshots/WeatherApp/2025-06-02_20-34-34.png)
+![WeatherApp_ss_2](https://storage.yandexcloud.net/spike2250-docs/screenshots/WeatherApp/2025-06-02_20-35-36.png)
+![WeatherApp_ss_3](https://storage.yandexcloud.net/spike2250-docs/screenshots/WeatherApp/2025-06-02_20-36-16.png)
+![WeatherApp_ss_4](https://storage.yandexcloud.net/spike2250-docs/screenshots/WeatherApp/2025-06-02_20-36-56.png)
