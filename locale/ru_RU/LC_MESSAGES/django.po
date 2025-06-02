@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-02 18:25+0500\n"
+"POT-Creation-Date: 2025-06-02 18:42+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,14 +40,10 @@ msgid "Forecast Tomorrow"
 msgstr "Прогноз на завтра"
 
 #: .\app\forecasts\views.py:39
-#, fuzzy
-#| msgid "User successfully deleted"
 msgid "Forecast successfully created"
 msgstr "Прогноз успешно создан"
 
 #: .\app\forecasts\views.py:74
-#, fuzzy
-#| msgid "User successfully deleted"
 msgid "Forecast successfully deleted"
 msgstr "Прогноз успешно удален"
 
@@ -64,8 +60,6 @@ msgid "Go to main page"
 msgstr "Вернуться на главную страницу"
 
 #: .\app\templates\base.html:11
-#, fuzzy
-#| msgid "My Application"
 msgid "Weather Application"
 msgstr "Приложение для прогнозов погоды"
 
@@ -78,22 +72,16 @@ msgid "Yes, delete"
 msgstr "Да, удалить"
 
 #: .\app\templates\forecasts\create.html:6
-#, fuzzy
-#| msgid "Created at"
 msgid "Create Forecast"
 msgstr "Создать прогноз"
 
 #: .\app\templates\forecasts\create.html:9
-#, fuzzy
-#| msgid "Created at"
 msgid "Create"
-msgstr "Дата создания"
+msgstr "Создать"
 
 #: .\app\templates\forecasts\delete.html:6
-#, fuzzy
-#| msgid "Delete user"
 msgid "Delete forecast"
-msgstr "Удаление прогноза"
+msgstr "Удалить прогноз"
 
 #: .\app\templates\forecasts\delete.html:8
 msgid "Forecast for city"
@@ -113,52 +101,52 @@ msgstr "Прогноз погоды на сегодня и завтра для �
 msgid "Created at"
 msgstr "Дата создания"
 
-#: .\app\templates\forecasts\forecast.html:29
+#: .\app\templates\forecasts\forecast.html:30
 msgid "Weather forecast for today"
 msgstr "Прогноз погоды на сегодня"
 
-#: .\app\templates\forecasts\forecast.html:32
-#: .\app\templates\forecasts\forecast.html:59
+#: .\app\templates\forecasts\forecast.html:33
+#: .\app\templates\forecasts\forecast.html:61
 #: .\app\templates\forecasts\forecasts.html:53
 #: .\app\templates\forecasts\forecasts.html:57
 msgid "Temperature"
 msgstr "Температура"
 
-#: .\app\templates\forecasts\forecast.html:36
-#: .\app\templates\forecasts\forecast.html:63
+#: .\app\templates\forecasts\forecast.html:37
+#: .\app\templates\forecasts\forecast.html:65
 msgid "Feels like"
 msgstr "Ощущается как"
 
-#: .\app\templates\forecasts\forecast.html:40
-#: .\app\templates\forecasts\forecast.html:67
+#: .\app\templates\forecasts\forecast.html:41
+#: .\app\templates\forecasts\forecast.html:69
 msgid "Common status"
 msgstr "Общий статус"
 
-#: .\app\templates\forecasts\forecast.html:44
-#: .\app\templates\forecasts\forecast.html:71
+#: .\app\templates\forecasts\forecast.html:45
+#: .\app\templates\forecasts\forecast.html:73
 msgid "Humidity"
 msgstr "Влажность"
 
-#: .\app\templates\forecasts\forecast.html:48
-#: .\app\templates\forecasts\forecast.html:75
+#: .\app\templates\forecasts\forecast.html:49
+#: .\app\templates\forecasts\forecast.html:77
 msgid "Wind speed"
 msgstr "Скорость ветра"
 
-#: .\app\templates\forecasts\forecast.html:49
-#: .\app\templates\forecasts\forecast.html:76
+#: .\app\templates\forecasts\forecast.html:50
+#: .\app\templates\forecasts\forecast.html:78
 msgid "m/s"
 msgstr "м/с"
 
-#: .\app\templates\forecasts\forecast.html:52
-#: .\app\templates\forecasts\forecast.html:79
+#: .\app\templates\forecasts\forecast.html:53
+#: .\app\templates\forecasts\forecast.html:81
 msgid "Clouds"
 msgstr "Облачность"
 
-#: .\app\templates\forecasts\forecast.html:56
+#: .\app\templates\forecasts\forecast.html:58
 msgid "Weather forecast for tomorrow"
 msgstr "Прогноз погоды на завтра"
 
-#: .\app\templates\forecasts\forecast.html:85
+#: .\app\templates\forecasts\forecast.html:87
 #: .\app\templates\forecasts\forecasts.html:61
 #: .\app\templates\users\users.html:30
 msgid "Delete"
@@ -169,8 +157,6 @@ msgid "Forecasts"
 msgstr "Прогнозы"
 
 #: .\app\templates\forecasts\forecasts.html:13 .\app\templates\index.html:17
-#, fuzzy
-#| msgid "Created at"
 msgid "Create forecast"
 msgstr "Создать прогноз"
 
@@ -200,10 +186,8 @@ msgid "Hello there"
 msgstr "Приветствую!"
 
 #: .\app\templates\index.html:24
-#, fuzzy
-#| msgid "This is the My Application,"
 msgid "This is the Weather Application,"
-msgstr "Это приложение погоды"
+msgstr "Это приложение для прогнозов погоды"
 
 #: .\app\templates\index.html:26
 msgid "Here you can find out the weather forecast for the specified city"
@@ -308,16 +292,3 @@ msgstr "У вас нет прав для изменения другого по�
 #: .\app\utils.py:74
 msgid "The forecast can be deleted only by its author"
 msgstr "Прогноз может удалить только его автор"
-
-#~ msgid "It's been a long time."
-#~ msgstr "Давненько ты сюда не заглядывал"
-
-#~ msgid "How you doin'?"
-#~ msgstr "Как дела?"
-
-#~ msgid ""
-#~ "Here will be a brief description of the functionality of my application."
-#~ msgstr "Здесь будет краткое описание фукционала моего приложения."
-
-#~ msgid "Application Name"
-#~ msgstr "Название приложения"
