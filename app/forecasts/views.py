@@ -34,7 +34,7 @@ class ForecastCreateView(AuthorizationCheckMixin,
                          CreateView):
     form_class = ForecastForm
     template_name = 'forecasts/create.html'
-    success_url = reverse_lazy('forecasts')
+    # success_url = reverse_lazy('forecast', kwargs={'pk': self.object.pk})
     success_message = _('Forecast successfully created')
 
     def form_valid(self, form):
@@ -53,6 +53,9 @@ class ForecastCreateView(AuthorizationCheckMixin,
             form.instance.forecast_tomorrow = {"error": forecasts["tomorrow"]}
 
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('forecast', kwargs={'pk': self.object.pk})
 
 
 class ForecastDeleteView(AuthorizationCheckMixin,
