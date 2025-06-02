@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block body %}
+
+    <div class="container wrapper flex-grow-1 mt-5 bg-dark text-light">
+        <h1 class="my-4">{% trans 'Forecast preview' %}</h1>
+        <div class="card">
+            <div class="card-header text-light border-bottom" style="background-color: #2a2f47">
+                <h2 class="mb-1">{{ forecast.place }}</h2>
+            </div>
+            <div class="card-body bg-dark">
+                <p>{% trans "Weather forecast for today and tomorrow in the selected city" %}</p>
+
+                <hr class="bg-secondary">
+                <div class="container">
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Author' %}</div>
+                        <div class="col">{{ forecast.author }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Created at' %}</div>
+                        <div class="col">{{ forecast.created_at|date:"d.m.Y H:i" }}</div>
+                    </div>
+                </div>
+                <hr class="bg-secondary">
+                <p>{% trans "Weather forecast for today" %}</p>
+                <div class="container">
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Temperature' %}</div>
+                        <div class="col">{{ forecast.forecast_today.temp }}&deg;C</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Feels like' %}</div>
+                        <div class="col">{{ forecast.forecast_today.temp_feels_like }}&deg;C</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Common status' %}</div>
+                        <div class="col">{{ forecast.forecast_today.common_status }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Humidity' %}</div>
+                        <div class="col">{{ forecast.forecast_today.humidity }}%</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Wind speed' %}</div>
+                        <div class="col">{{ forecast.forecast_today.wind_speed }}{% trans 'm/s' %}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Clouds' %}</div>
+                        <div class="col">{{ forecast.forecast_today.clouds }}%</div>
+                    </div>
+                <hr class="bg-secondary">
+                <p>{% trans "Weather forecast for tomorrow" %}</p>
+                <div class="container">
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Temperature' %}</div>
+                        <div class="col">{{ forecast.forecast_tomorrow.temp }}&deg;C</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Feels like' %}</div>
+                        <div class="col">{{ forecast.forecast_tomorrow.temp_feels_like }}&deg;C</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Common status' %}</div>
+                        <div class="col">{{ forecast.forecast_tomorrow.common_status }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Humidity' %}</div>
+                        <div class="col">{{ forecast.forecast_tomorrow.humidity }}%</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Wind speed' %}</div>
+                        <div class="col">{{ forecast.forecast_tomorrow.wind_speed }}{% trans 'm/s' %}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% trans 'Clouds' %}</div>
+                        <div class="col">{{ forecast.forecast_tomorrow.clouds }}%</div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        {% trans 'Delete' as delete_btn %}
+                        {% url 'forecast_delete' task.id as delete_url %}
+                        {% bootstrap_button delete_btn button_class="btn btn-outline-danger" href=delete_url %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

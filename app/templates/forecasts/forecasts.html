@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block body %}
+
+    <div class="container wrapper flex-grow-1 mt-5 bg-dark text-light">
+        <div class="d-flex my-3">
+            <h1 class="flex-grow-1">{% trans 'Forecasts' %}</h1>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto my-3">
+            {% trans 'Create forecast' as create_btn %}
+            {% url 'forecast_create' as create_url %}
+            {% bootstrap_button create_btn button_class="btn btn-outline-warning" href=create_url %}
+        </div>
+
+        <div class="card mb-3 border-secondary mb-3">
+            <div class="card-body bg-dark">
+                <form class="form-inline center" method="get">
+                    {% bootstrap_form filter.form field_class="mx-1" %}
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        {% trans 'Show' as filter_btn %}
+                        {% bootstrap_button filter_btn button_type="submit" button_class="btn btn-outline-primary" %}
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr class="bg-dark text-light">
+                    <th>ID</th>
+                    <th>{% trans 'Place' %}</th>
+                    <th>{% trans 'Author' %}</th>
+                    <th>{% trans 'Created at' %}</th>
+                    <th>{% trans 'Forecast Today' %}</th>
+                    <th>{% trans 'Forecast Tomorrow' %}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for forecast in forecasts %}
+                <tr class="bg-dark text-light">
+                    <td class="text-light">{{ forecast.id }}</td>
+                    <td class="text-light"><a class="link-primary" href="{% url 'forecast' forecast.id %}">{{ forecast.place }}</a></td>
+                    <td class="text-light">{{ forecast.author }}</td>
+                    <td class="text-light">
+                        {{ forecast.created_at|date:"d.m.Y " }}<br>
+                        {{ forecast.created_at|date:"H:i" }}
+                    </td>
+                    <td class="text-light">
+                        {% trans 'Temperature' %}: {{ forecast.forecast_today.temp }} C<br>
+                        {% trans 'Temperature feels like' %}: {{ forecast.forecast_today.temp_feels_like }} C<br>
+                        {% trans 'Common status' %}: {{ forecast.forecast_today.common_status }}<br>
+                        {% trans 'Humidity' %}: {{ forecast.forecast_today.humidity }} %<br>
+                        {% trans 'Wind speed' %}: {{ forecast.forecast_today.wind_speed }} {% trans 'm/s' %}<br>
+                        {% trans 'Clouds' %}: {{ forecast.forecast_today.clouds }} %
+                    </td>
+                    <td class="text-light">
+                        {% trans 'Temperature' %}: {{ forecast.forecast_tomorrow.temp }} C<br>
+                        {% trans 'Temperature feels like' %}: {{ forecast.forecast_tomorrow.temp_feels_like }} C<br>
+                        {% trans 'Common status' %}: {{ forecast.forecast_tomorrow.common_status }}<br>
+                        {% trans 'Humidity' %}: {{ forecast.forecast_tomorrow.humidity }} %<br>
+                        {% trans 'Wind speed' %}: {{ forecast.forecast_tomorrow.wind_speed }} {% trans 'm/s' %}<br>
+                        {% trans 'Clouds' %}: {{ forecast.forecast_tomorrow.clouds }} %
+                    </td>
+                    <td class="text-light">
+                        <a class="link-danger" href="{% url 'forecast_delete' forecast.pk %}">{% trans 'Delete' %}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

@@ -12,7 +12,9 @@
                 <a class="nav-link text-light-emphasis" href="{% url 'users' %}">{% trans 'Users' %}</a>
             </li>
             {% if request.user.is_authenticated %}
-
+            <li class="nav-item">
+                <a class="nav-link text-light-emphasis" href="{% url 'forecasts' %}">{% trans 'Forecasts' %}</a>
+            </li>
             {% endif %}
         </ul>
 
