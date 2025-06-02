@@ -9,6 +9,7 @@ from pyowm.commons.exceptions import NotFoundError
 from .utils import (
     _preprocessing_place,
     _return_results,
+    ERROR_MESSAGE,
 )
 
 
@@ -32,7 +33,7 @@ class WeatherManager:
             )
             return _return_results(observation.weather)
         except NotFoundError:
-            return ""
+            return ERROR_MESSAGE
 
     def get_weather_tomorrow(
         self,
@@ -48,7 +49,7 @@ class WeatherManager:
                 forecast.get_weather_at(timestamps.tomorrow())
             )
         except NotFoundError:
-            return ""
+            return ERROR_MESSAGE
 
     def get_weather(self, place: str) -> Dict:
         return {

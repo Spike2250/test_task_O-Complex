@@ -1,5 +1,7 @@
 from typing import TYPE_CHECKING, Dict
 
+from django.utils.translation import gettext as _
+
 if TYPE_CHECKING:
     from pyowm.weatherapi25.weather import Weather
 
@@ -18,3 +20,6 @@ def _return_results(w: "Weather") -> Dict:
 def _preprocessing_place(place: str) -> str:
     place = place.lower().strip()
     return ' '.join(place.split())
+
+
+ERROR_MESSAGE = _("City name not found, try entering something else")
