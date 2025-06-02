@@ -16,6 +16,7 @@ dj-database-url = "^2.3.0"
 django-filter = "^25.1"
 psycopg2-binary = "^2.9.10"
 pyowm = "^3.3.0"
+setuptools = "^80.9.0"
 
 
 [tool.poetry.group.dev.dependencies]
