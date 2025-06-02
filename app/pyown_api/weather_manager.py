@@ -18,9 +18,7 @@ load_dotenv()
 
 class WeatherManager:
     def __init__(self):
-        self.owm = OWM(
-            os.getenv('OPEN_WEATHER_MAP_API_KEY')
-        )
+        self.owm = OWM(os.getenv('OPEN_WEATHER_MAP_API_KEY'))
         self.mgr = self.owm.weather_manager()
 
     def get_weather_today(
