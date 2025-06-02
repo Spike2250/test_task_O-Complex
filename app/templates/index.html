@@ -13,6 +13,11 @@
                 </p>
                 <p class="lead mb-0">{% trans "Nice to see you here again." %}</p>
                 <p class="mb-0">{% trans "Where will we check the weather today?" %}</p>
+                <div class="d-grid gap-2 col-6 mx-auto my-3">
+                    {% trans 'Create forecast' as create_btn %}
+                    {% url 'forecast_create' as create_url %}
+                    {% bootstrap_button create_btn button_class="btn btn-outline-warning" href=create_url %}
+                </div>
             {% else %}
                 <p class="display-4 mt-5 mb-4">{% trans 'Hello there' %}</p>
                 <p class="mx-auto w-50">
