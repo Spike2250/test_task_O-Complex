@@ -1,3 +1,5 @@
+from typing import Dict
+
 from django.views.generic import CreateView, DeleteView, DetailView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext as _
@@ -5,10 +7,12 @@ from django.urls import reverse_lazy
 
 from django_filters.views import FilterView
 
+
 from .forms import ForecastForm
 from .models import Forecast
 from ..utils import AuthorizationCheckMixin, ForecastPermissionsMixin
 from ..forecasts.filters import ForecastFilter
+from ..pyown_api import weather_manager
 
 
 class ForecastView(AuthorizationCheckMixin,
@@ -36,6 +40,17 @@ class ForecastCreateView(AuthorizationCheckMixin,
     def form_valid(self, form):
         current_user = self.request.user
         form.instance.author = current_user
+
+        if form.instance.type:
+            forecast = weather_manager.get_weather_tomorrow(form.instance.place)
+        else:
+            forecast = weather_manager.get_weather_today(form.instance.place)
+
+        if isinstance(forecast, Dict):
+            form.instance.forecast = forecast
+        else:
+            form.instance.forecast = {"error": forecast}
+
         return super().form_valid(form)
 
 

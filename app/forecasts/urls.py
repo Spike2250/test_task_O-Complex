@@ -18,6 +18,6 @@ urlpatterns = [
     path(
         '<int:pk>/delete/',
         views.ForecastDeleteView.as_view(),
-        name='task_delete',
+        name='forecast_delete',
     ),
 ]

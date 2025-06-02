@@ -55,3 +55,6 @@ class WeatherManager:
             "today": self.get_weather_today(place),
             "tomorrow": self.get_weather_tomorrow(place),
         }
+
+
+weather_manager = WeatherManager()

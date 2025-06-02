@@ -7,4 +7,5 @@ class ForecastForm(forms.ModelForm):
         model = Forecast
         fields = [
             'place',
+            'type',
         ]
