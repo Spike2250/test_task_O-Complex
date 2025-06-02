@@ -26,7 +26,7 @@ test-coverage:
 	poetry run coverage xml --include=app/* --omit=app/settings.py
 
 create-locale-ru-ru:
-    poetry run manage.py makemessages -l ru_RU
+	poetry run manage.py makemessages -l ru_RU
 
 compile-locale:
-    poetry run manage.py compilemessages
+	poetry run manage.py compilemessages
