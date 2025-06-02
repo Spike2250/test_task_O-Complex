@@ -9,7 +9,6 @@ class Forecast(models.Model):
         max_length=255, unique=False, blank=False,
         verbose_name=_('Place'),
     )
-    created_at = models.DateTimeField(auto_now_add=True)
     type = models.BooleanField(
         verbose_name=_('Type')
     )
@@ -22,3 +21,4 @@ class Forecast(models.Model):
         related_name='author',
         verbose_name=_('Author'),
     )
+    created_at = models.DateTimeField(auto_now_add=True)

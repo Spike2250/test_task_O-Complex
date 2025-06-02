@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django_filters',
     MAIN_APP_NAME,
     f'{MAIN_APP_NAME}.users',
+    f'{MAIN_APP_NAME}.forecasts',
 ]
 
 MIDDLEWARE = [
