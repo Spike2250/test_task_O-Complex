@@ -5,6 +5,10 @@ from django.contrib.auth.mixins import (
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
+from django.http import Http404
+
+from .users.models import User
+from .forecasts.models import Forecast
 
 
 class AuthorizationCheckMixin(LoginRequiredMixin):
@@ -42,4 +46,31 @@ class UserPermissionsMixin(UserPassesTestMixin):
             messages.error(self.request,
                            _('You have no rights to change another user.'))
             return redirect(reverse_lazy('users'))
+        return super().handle_no_permission()
+
+
+class ForecastPermissionsMixin(UserPassesTestMixin):
+    """
+    Checks permissions to task deleting.
+    If the user is not the author of the task, task will not be deleted.
+    """
+
+    def test_func(self):
+        current_user = self.request.user.id
+        forecast_id = self.kwargs['pk']
+
+        try:
+            task_author = Forecast.objects.get(pk=forecast_id).author.pk
+        except (Forecast.DoesNotExist, User.DoesNotExist):
+            raise Http404
+
+        if current_user != task_author:
+            return False
+        return True
+
+    def handle_no_permission(self):
+        if self.raise_exception or self.request.user.is_authenticated:
+            messages.error(self.request,
+                           _('The forecast can be deleted only by its author'))
+            return redirect(reverse_lazy('forecasts'))
         return super().handle_no_permission()
