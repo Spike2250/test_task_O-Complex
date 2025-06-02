@@ -100,11 +100,10 @@ CSRF_TRUSTED_ORIGINS = [
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DEV_DATABASE = f"sqlite:///{BASE_DIR/'db.sqlite3'}"
-
-DATABASE = dj_database_url.parse(DEV_DATABASE) if DEBUG else dj_database_url.parse(
-    os.getenv("DATABASE_URL", DEV_DATABASE)
-)
-
+if DEBUG:
+    DATABASE = dj_database_url.parse(DEV_DATABASE)
+else:
+    DATABASE = dj_database_url.parse(os.getenv("DATABASE_URL", DEV_DATABASE))
 DATABASES = {
     "default": DATABASE,
 }

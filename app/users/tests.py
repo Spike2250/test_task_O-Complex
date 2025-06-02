@@ -1,7 +1,6 @@
-
 from datetime import datetime
 
-from django.test import TestCase, modify_settings
+from django.test import TestCase
 from django.contrib.messages import get_messages
 from django.urls import reverse_lazy
 

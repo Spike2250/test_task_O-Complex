@@ -1,4 +1,4 @@
-from django.test import TestCase, modify_settings
+from django.test import TestCase
 from django.contrib.messages import get_messages
 from django.urls import reverse_lazy
 
@@ -27,8 +27,12 @@ class SetUpTestCase(TestCase):
         self.alice_forecast = Forecast.objects.create(
             place=alice_forecast_place,
             author=self.user,
-            forecast_today=weather_manager.get_weather_today(alice_forecast_place),
-            forecast_tomorrow=weather_manager.get_weather_tomorrow(alice_forecast_place),
+            forecast_today=weather_manager.get_weather_today(
+                alice_forecast_place
+            ),
+            forecast_tomorrow=weather_manager.get_weather_tomorrow(
+                alice_forecast_place
+            ),
         )
         self.alice_forecast.save()
 
@@ -36,8 +40,12 @@ class SetUpTestCase(TestCase):
         self.bob_forecast = Forecast.objects.create(
             place=bob_forecast_place,
             author=self.user2,
-            forecast_today=weather_manager.get_weather_today(bob_forecast_place),
-            forecast_tomorrow=weather_manager.get_weather_tomorrow(bob_forecast_place),
+            forecast_today=weather_manager.get_weather_today(
+                bob_forecast_place
+            ),
+            forecast_tomorrow=weather_manager.get_weather_tomorrow(
+                bob_forecast_place
+            ),
         )
         self.bob_forecast.save()
 
@@ -50,12 +58,18 @@ class ForecastCreateTestCase(SetUpTestCase):
     def test_forecasts_list_view(self):
         response = self.client.get(reverse_lazy('forecasts'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='forecasts/forecasts.html')
+        self.assertTemplateUsed(
+            response,
+            template_name='forecasts/forecasts.html',
+        )
 
     def test_forecast_create_view(self):
         response = self.client.get(reverse_lazy('forecast_create'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='forecasts/create.html')
+        self.assertTemplateUsed(
+            response,
+            template_name='forecasts/create.html',
+        )
 
     def test_forecast_create_success(self):
         some_valid_place = "Монако"
@@ -63,8 +77,12 @@ class ForecastCreateTestCase(SetUpTestCase):
             reverse_lazy('forecast_create'),
             {
                 'place': some_valid_place,
-                'forecast_today': weather_manager.get_weather_today(some_valid_place),
-                'forecast_tomorrow': weather_manager.get_weather_tomorrow(some_valid_place),
+                'forecast_today': weather_manager.get_weather_today(
+                    some_valid_place
+                ),
+                'forecast_tomorrow': weather_manager.get_weather_tomorrow(
+                    some_valid_place
+                ),
             }
         )
         self.assertEqual(response.status_code, 302)
@@ -104,7 +122,10 @@ class ForecastDeleteTestCase(SetUpTestCase):
             'forecast_delete', kwargs={'pk': 1}
         ))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, template_name='forecasts/delete.html')
+        self.assertTemplateUsed(
+            response,
+            template_name='forecasts/delete.html',
+        )
 
     def test_task_delete_success(self):
         response = self.client.post(
