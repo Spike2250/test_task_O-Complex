@@ -1,4 +1,4 @@
 __all__ = (
-    "WeatherManager",
+    "weather_manager",
 )
-from .weather_manager import WeatherManager
+from .weather_manager import weather_manager
