@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+
 from django.test import TestCase
 from django.contrib.messages import get_messages
 from django.urls import reverse_lazy
@@ -5,6 +7,9 @@ from django.urls import reverse_lazy
 from .models import Forecast
 from ..users.models import User
 from ..pyown_api import weather_manager
+
+
+load_dotenv()
 
 
 class SetUpTestCase(TestCase):
