@@ -4,6 +4,8 @@ from django.views.generic import CreateView, DeleteView, DetailView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext as _
 from django.urls import reverse_lazy
+from django.contrib import messages
+from django.shortcuts import redirect
 
 from django_filters.views import FilterView
 
@@ -34,7 +36,6 @@ class ForecastCreateView(AuthorizationCheckMixin,
                          CreateView):
     form_class = ForecastForm
     template_name = 'forecasts/create.html'
-    # success_url = reverse_lazy('forecast', kwargs={'pk': self.object.pk})
     success_message = _('Forecast successfully created')
 
     def form_valid(self, form):
@@ -48,11 +49,16 @@ class ForecastCreateView(AuthorizationCheckMixin,
         )):
             form.instance.forecast_today = forecasts["today"]
             form.instance.forecast_tomorrow = forecasts["tomorrow"]
-        else:
-            form.instance.forecast_today = {"error": forecasts["today"]}
-            form.instance.forecast_tomorrow = {"error": forecasts["tomorrow"]}
 
-        return super().form_valid(form)
+            return super().form_valid(form)
+
+        else:
+            error_message = forecasts["today"]
+            messages.error(
+                self.request,
+                error_message
+            )
+            return redirect('forecast_create')
 
     def get_success_url(self):
         return reverse_lazy('forecast', kwargs={'pk': self.object.pk})
