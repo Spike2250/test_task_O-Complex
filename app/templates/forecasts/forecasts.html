@@ -50,20 +50,12 @@
                         {{ forecast.created_at|date:"H:i" }}
                     </td>
                     <td class="text-light">
-                        {% trans 'Temperature' %}: {{ forecast.forecast_today.temp }} C<br>
-                        {% trans 'Temperature feels like' %}: {{ forecast.forecast_today.temp_feels_like }} C<br>
-                        {% trans 'Common status' %}: {{ forecast.forecast_today.common_status }}<br>
-                        {% trans 'Humidity' %}: {{ forecast.forecast_today.humidity }} %<br>
-                        {% trans 'Wind speed' %}: {{ forecast.forecast_today.wind_speed }} {% trans 'm/s' %}<br>
-                        {% trans 'Clouds' %}: {{ forecast.forecast_today.clouds }} %
+                        {% trans 'Temperature' %}: {{ forecast.forecast_today.temp }}&deg;C<br>
+                        {% trans 'Temperature feels like' %}: ...
                     </td>
                     <td class="text-light">
-                        {% trans 'Temperature' %}: {{ forecast.forecast_tomorrow.temp }} C<br>
-                        {% trans 'Temperature feels like' %}: {{ forecast.forecast_tomorrow.temp_feels_like }} C<br>
-                        {% trans 'Common status' %}: {{ forecast.forecast_tomorrow.common_status }}<br>
-                        {% trans 'Humidity' %}: {{ forecast.forecast_tomorrow.humidity }} %<br>
-                        {% trans 'Wind speed' %}: {{ forecast.forecast_tomorrow.wind_speed }} {% trans 'm/s' %}<br>
-                        {% trans 'Clouds' %}: {{ forecast.forecast_tomorrow.clouds }} %
+                        {% trans 'Temperature' %}: {{ forecast.forecast_tomorrow.temp }}&deg;C<br>
+                        {% trans 'Temperature feels like' %}: ...
                     </td>
                     <td class="text-light">
                         <a class="link-danger" href="{% url 'forecast_delete' forecast.pk %}">{% trans 'Delete' %}</a>
