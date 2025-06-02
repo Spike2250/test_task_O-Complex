@@ -10,8 +10,8 @@ WIDGET = Select(attrs={'class': 'form-control bg-dark text-white'})
 
 
 class ForecastFilter(FilterSet):
-    executor = ModelChoiceFilter(
-        label=_('Executor'),
+    author = ModelChoiceFilter(
+        label=_('Author'),
         queryset=User.objects.all(),
         widget=WIDGET,
     )
@@ -23,7 +23,7 @@ class ForecastFilter(FilterSet):
 
     class Meta:
         model = Forecast
-        fields = ['status', 'executor', 'labels']
+        fields = ['author']
 
     def get_my_forecasts(self, queryset, _, value):
         if value:
