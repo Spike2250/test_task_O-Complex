@@ -41,15 +41,16 @@ class ForecastCreateView(AuthorizationCheckMixin,
         current_user = self.request.user
         form.instance.author = current_user
 
-        if form.instance.type:
-            forecast = weather_manager.get_weather_tomorrow(form.instance.place)
+        forecasts = weather_manager.get_weather(form.instance.place)
+        if all((
+            isinstance(forecasts["today"], Dict),
+            isinstance(forecasts["tomorrow"], Dict),
+        )):
+            form.instance.forecast_today = forecasts["today"]
+            form.instance.forecast_tomorrow = forecasts["tomorrow"]
         else:
-            forecast = weather_manager.get_weather_today(form.instance.place)
-
-        if isinstance(forecast, Dict):
-            form.instance.forecast = forecast
-        else:
-            form.instance.forecast = {"error": forecast}
+            form.instance.forecast_today = {"error": forecasts["today"]}
+            form.instance.forecast_tomorrow = {"error": forecasts["tomorrow"]}
 
         return super().form_valid(form)
 

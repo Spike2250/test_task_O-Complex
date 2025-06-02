@@ -9,12 +9,13 @@ class Forecast(models.Model):
         max_length=255, unique=False, blank=False,
         verbose_name=_('Place'),
     )
-    type = models.BooleanField(
-        verbose_name=_('Type')
-    )
-    forecast = models.JSONField(
+    forecast_today = models.JSONField(
         blank=True,
-        verbose_name=_('Forecast'),
+        verbose_name=_('Forecast Today'),
+    )
+    forecast_tomorrow = models.JSONField(
+        blank=True,
+        verbose_name=_('Forecast Tomorrow'),
     )
     author = models.ForeignKey(
         User, blank=False, on_delete=models.CASCADE,
